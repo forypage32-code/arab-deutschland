@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>ربط TikTok - Arab Deutschland</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f5f5f5;
+      padding: 60px 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 450px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Arab Deutschland</h2>
+    <h3>ربط حساب TikTok</h3>
+    <p id="status">جارٍ التحقق من نتيجة الربط...</p>
+    <a href="index.html">العودة إلى الرئيسية</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const code = params.get("code");
+    const error = params.get("error");
+    const status = document.getElementById("status");
+
+    if (error) {
+      status.textContent = "لم تكتمل الموافقة على الربط.";
+    } else if (code) {
+      status.textContent =
+        "تم استلام رد TikTok. يلزم إكمال الربط عبر الخادم الآمن.";
+    } else {
+      status.textContent =
+        "هذه صفحة العودة من TikTok.";
+    }
+  </script>
+</body>
+</html>
